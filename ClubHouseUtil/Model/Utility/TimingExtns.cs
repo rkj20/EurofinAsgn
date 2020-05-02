@@ -40,9 +40,17 @@
         /// <param name="time">The time.</param>
         /// <param name="">The .</param>
         /// <returns></returns>
-        public static DateTime NextAvailableSlotStartTime(this TimingDetails details, DateTime startTime, int duration)
+        public static DateTime NextAvailableSlotStartTime(this TimingDetails details, DateTime startTime, int slotDuration)
         {
-            return DateTime.Now;
+            Start:
+            startTime = startTime.AddMinutes(slotDuration);
+
+            // Check if this slot time contradicts with any break timing
+            if(details.Breaks.Any(x=> DateTime.Compare(x.BreakStartTime, startTime) <=0 && DateTime.Compare(x.BreakStartTime.AddMinutes(x.BreakDurationInMinutes), startTime) >=0))
+            {
+                goto Start;
+            }
+            return startTime;
         }
     }
 }

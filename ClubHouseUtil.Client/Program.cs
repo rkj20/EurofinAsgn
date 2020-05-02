@@ -10,6 +10,8 @@
         {
             IFacility libFacility = ClubHouseFacilityApi.GetKidsPlayAreaFacility;
             var res = libFacility.CreateBooking(DataGen.CreateBooking());
+            Console.WriteLine(res.Success);
+            Console.WriteLine(res.ResponseMessage);
 
             Console.ReadLine();
         }
