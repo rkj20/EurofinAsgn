@@ -1,0 +1,102 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{BEA263CA-1DEE-44A7-B998-9423F06EA3A8}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ClubHouseUtil</RootNamespace>
+    <AssemblyName>ClubHouseUtil</AssemblyName>
+    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Api\ClubHouseFacility.cs" />
+    <Compile Include="Api\ClubHouseFacilityApi.cs" />
+    <Compile Include="Facilities\FacilityBase.cs" />
+    <Compile Include="Model\Configurations\FacilityConfiguration.cs" />
+    <Compile Include="Model\Configurations\ConfigurationFactory.cs" />
+    <Compile Include="Model\Configurations\IFacilityConfiguration.cs" />
+    <Compile Include="Model\Constants\FacilityID.cs" />
+    <Compile Include="Model\Constants\FacilityName.cs" />
+    <Compile Include="Model\Constants\ResponseMessages.cs" />
+    <Compile Include="Model\Dtos\AccessDetails.cs" />
+    <Compile Include="Model\Dtos\BookingDetails.cs" />
+    <Compile Include="Model\Dtos\BookingSlot.cs" />
+    <Compile Include="Model\Dtos\BreakTimeDetails.cs" />
+    <Compile Include="Model\Dtos\FacilityUser.cs" />
+    <Compile Include="Model\Dtos\LockingDetails.cs" />
+    <Compile Include="Model\Dtos\TimingDetails.cs" />
+    <Compile Include="Model\Enums\MaintenanceRange.cs" />
+    <Compile Include="Model\Interfaces\IResposnse.cs" />
+    <Compile Include="Model\Dtos\Resposnse.cs" />
+    <Compile Include="Model\Interfaces\IFacilityAccess.cs" />
+    <Compile Include="Model\Interfaces\IFacilityBooking.cs" />
+    <Compile Include="Model\Interfaces\IFacilityLocking.cs" />
+    <Compile Include="Model\Interfaces\IFacilityTiming.cs" />
+    <Compile Include="Model\Interfaces\IFacilityMaintenance.cs" />
+    <Compile Include="Model\Enums\MaintenanceFrequency.cs" />
+    <Compile Include="Facilities\Gym.cs" />
+    <Compile Include="Model\Interfaces\IFacility.cs" />
+    <Compile Include="Facilities\KidsPlayArea.cs" />
+    <Compile Include="Facilities\Library.cs" />
+    <Compile Include="Model\Dtos\MaintenanceDetails.cs" />
+    <Compile Include="Facilities\SwimmingPool.cs" />
+    <Compile Include="Model\Enums\MaintenanceType.cs" />
+    <Compile Include="Model\Logging\Formatters\DefaultFormatter.cs" />
+    <Compile Include="Model\Logging\Formatters\IFormatter.cs" />
+    <Compile Include="Model\Logging\Handlers\FileLogger.cs" />
+    <Compile Include="Model\Logging\Handlers\ILogWriter.cs" />
+    <Compile Include="Model\Logging\IFacilityLogger.cs" />
+    <Compile Include="Model\Logging\LogFactory.cs" />
+    <Compile Include="Model\Logging\FacilityLogger.cs" />
+    <Compile Include="Model\Logging\LogMessage.cs" />
+    <Compile Include="Model\Logging\LogType.cs" />
+    <Compile Include="Model\Utility\BookingExtns.cs" />
+    <Compile Include="Model\Utility\LockingPeriodExtns.cs" />
+    <Compile Include="Model\Utility\MaintenanceExtns.cs" />
+    <Compile Include="Model\Utility\TimingExtns.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="System.ValueTuple">
+      <Version>4.5.0</Version>
+    </PackageReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
