@@ -17,8 +17,8 @@
         /// <returns></returns>
         public static bool Exists(this BookingDetails detail, DateTime startTime, DateTime endTime)
         {
-            return DateTime.Compare(detail.SlotDetails.SlotStartTime, startTime) >= 0 &&
-               DateTime.Compare(detail.SlotDetails.SlotStartTime.AddMinutes(detail.SlotDetails.SlotLengthInMinutes), endTime) <= 0;
+            return DateTime.Compare(detail.SlotDetails.SlotStartTime, startTime) <= 0 &&
+               DateTime.Compare(detail.SlotDetails.SlotStartTime.AddMinutes(detail.SlotDetails.SlotLengthInMinutes), endTime) >= 0;
         }
 
         /// <summary>
@@ -35,6 +35,6 @@
             return DateTime.Compare(detail.SlotDetails.SlotStartTime.AddMinutes(detail.SlotDetails.SlotLengthInMinutes), newDetail.SlotDetails.SlotStartTime) == 0 &&
                 DateTime.Compare(detail.SlotDetails.SlotStartTime, newDetail.SlotDetails.SlotStartTime.AddMinutes(newDetail.SlotDetails.SlotLengthInMinutes)) == 0 &&
                 detail.UserDetails.UserId == newDetail.UserDetails.UserId;
-        }        
+        }
     }
 }

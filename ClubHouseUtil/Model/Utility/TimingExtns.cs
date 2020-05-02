@@ -30,8 +30,8 @@
         /// <returns></returns>
         public static bool Exists(this BreakTimeDetails detail, DateTime startTime, DateTime endTime)
         {
-            return DateTime.Compare(detail.BreakStartTime, startTime) >= 0 &&
-               DateTime.Compare(detail.BreakStartTime.AddMinutes(detail.BreakDurationInMinutes), endTime) <= 0;
+            return DateTime.Compare(detail.BreakStartTime, startTime) <= 0 &&
+               DateTime.Compare(detail.BreakStartTime.AddMinutes(detail.BreakDurationInMinutes), endTime) >= 0;
         }
 
         /// <summary>

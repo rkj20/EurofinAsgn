@@ -138,21 +138,24 @@
                 return new Resposnse(false, "Maintenance percentage is above allowed limit.");
 
             // If the maintenance is recurring the add future maintenance
-            switch (maintenance.RecurringFrequency)
+            if (maintenance.MaintenanceType == MaintenanceType.Predefined)
             {
-                case MaintenanceFrequency.None:
-                    maintenance.MaintenanceId = Guid.NewGuid().ToString();
-                    maintenanceList.Add(maintenance.MaintenanceId, maintenance);
-                    break;
-                case MaintenanceFrequency.Weekly:
-                    AddFutureMaintenance(maintenance, 7);
-                    break;
-                case MaintenanceFrequency.Monthly:
-                    AddFutureMaintenance(maintenance, 30);
-                    break;
-                case MaintenanceFrequency.Yearly:
-                    AddFutureMaintenance(maintenance, 365);
-                    break;
+                switch (maintenance.RecurringFrequency)
+                {
+                    case MaintenanceFrequency.None:
+                        maintenance.MaintenanceId = Guid.NewGuid().ToString();
+                        maintenanceList.Add(maintenance.MaintenanceId, maintenance);
+                        break;
+                    case MaintenanceFrequency.Weekly:
+                        AddFutureMaintenance(maintenance, 7);
+                        break;
+                    case MaintenanceFrequency.Monthly:
+                        AddFutureMaintenance(maintenance, 30);
+                        break;
+                    case MaintenanceFrequency.Yearly:
+                        AddFutureMaintenance(maintenance, 365);
+                        break;
+                }
             }
 
             // Verify if any bookings are there cancel them
@@ -160,7 +163,7 @@
 
             // For on-demand maintenance, this validation only warns but allows scheduling
             var msg = maintenance.MaintenanceType == MaintenanceType.OnDemand && maintenance.MaintenancePercentage > _config.PercentageAllowed ?
-                "Maintenance percentage is above allowed limit." :
+                "Warning - Maintenance percentage is above allowed limit." :
                 "Maintenance created to facility.";
             return new Resposnse(true, msg);
         }

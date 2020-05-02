@@ -16,8 +16,8 @@
         /// <returns></returns>
         public static bool Exists(this LockingDetails detail, LockingDetails newDetail)
         {
-            return DateTime.Compare(detail.LockStartTime, newDetail.LockStartTime) >= 0 &&
-               DateTime.Compare(detail.LockEndTime, newDetail.LockEndTime) <= 0;
+            return DateTime.Compare(detail.LockStartTime, newDetail.LockStartTime) <= 0 &&
+               DateTime.Compare(detail.LockEndTime, newDetail.LockEndTime) >= 0;
         }
 
         /// <summary>
@@ -29,9 +29,15 @@
         /// <returns></returns>
         public static bool Exists(this LockingDetails detail, DateTime startTime, DateTime endTime)
         {
-            return DateTime.Compare(detail.LockStartTime, startTime) >= 0 && DateTime.Compare(detail.LockEndTime, endTime) <= 0;
+            return DateTime.Compare(detail.LockStartTime, startTime) <= 0 && DateTime.Compare(detail.LockEndTime, endTime) >= 0;
         }
 
+        /// <summary>
+        /// Check if any Lockings exists now.
+        /// </summary>
+        /// <param name="detail">The detail.</param>
+        /// <param name="now">The now.</param>
+        /// <returns></returns>
         public static bool LockingExistsNow(this LockingDetails detail, DateTime now)
         {
             return DateTime.Compare(detail.LockStartTime, now) == 0;

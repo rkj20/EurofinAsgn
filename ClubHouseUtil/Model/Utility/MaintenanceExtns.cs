@@ -17,8 +17,8 @@
         /// <returns></returns>
         public static bool Exists(this MaintenanceDetails detail, MaintenanceDetails newDetail)
         {
-            return DateTime.Compare(detail.StartTime, newDetail.StartTime) >= 0 &&
-               DateTime.Compare(detail.EndTime, newDetail.StartTime) <= 0 && detail.MaintenanceType != MaintenanceType.OnDemand ;
+            return DateTime.Compare(detail.StartTime, newDetail.StartTime) <= 0 &&
+               DateTime.Compare(detail.EndTime, newDetail.StartTime) >= 0 && detail.MaintenanceType != MaintenanceType.OnDemand ;
         }
 
         /// <summary>
@@ -30,7 +30,7 @@
         /// <returns></returns>
         public static bool Exists(this MaintenanceDetails detail, DateTime startTime, DateTime endTime)
         {
-            return DateTime.Compare(detail.StartTime, startTime) >= 0 && DateTime.Compare(detail.EndTime, endTime) <= 0 ;
+            return DateTime.Compare(detail.StartTime, startTime) <= 0 && DateTime.Compare(detail.EndTime, endTime) >= 0 ;
         }
 
         public static bool MaintenanceExistsNow(this MaintenanceDetails detail, DateTime now)
