@@ -1,7 +1,0 @@
-E:\Github\EurofinAsgn\ClubHouseUtil\obj\Debug\ClubHouseUtil.csproj.CoreCompileInputs.cache
-E:\Github\EurofinAsgn\ClubHouseUtil\bin\Debug\ClubHouseUtil.dll
-E:\Github\EurofinAsgn\ClubHouseUtil\bin\Debug\ClubHouseUtil.pdb
-E:\Github\EurofinAsgn\ClubHouseUtil\obj\Debug\ClubHouseUtil.dll
-E:\Github\EurofinAsgn\ClubHouseUtil\obj\Debug\ClubHouseUtil.pdb
-E:\Github\EurofinAsgn\ClubHouseUtil\bin\Debug\ClubHouseUtil.dll.config
-E:\Github\EurofinAsgn\ClubHouseUtil\obj\Debug\ClubHouseUtil.csprojAssemblyReference.cache
