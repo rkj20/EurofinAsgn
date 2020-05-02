@@ -28,5 +28,11 @@
         /// The slot details.
         /// </value>
         public BookingSlot SlotDetails { get; set; }
+
+        public BookingDetails()
+        {
+            UserDetails = new FacilityUser();
+            SlotDetails = new BookingSlot();
+        }
     }
 }

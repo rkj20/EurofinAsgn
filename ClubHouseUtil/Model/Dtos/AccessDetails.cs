@@ -38,5 +38,10 @@
         ///   <c>true</c> if this instance is checked in; otherwise, <c>false</c>.
         /// </value>
         public bool IsCheckedIn { get; set; }
+
+        public AccessDetails()
+        {
+            User = new FacilityUser();
+        }
     }
 }

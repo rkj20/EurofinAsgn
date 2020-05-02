@@ -40,5 +40,11 @@
         /// The slots.
         /// </value>
         public List<BookingSlot> Slots { get; set; }
+
+        public TimingDetails()
+        {
+            Breaks = new List<BreakTimeDetails>();
+            Slots = new List<BookingSlot>();
+        }
     }
 }
